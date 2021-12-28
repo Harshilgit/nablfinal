@@ -40,7 +40,7 @@ python-coveralls==2.9.3
 pytz==2020.1
 PyYAML==5.3.1
 qrcode==7.2
-reportlab==3.5.60
+reportlab==3.5.62
 requests==2.26.0
 six==1.14.0
 sqlparse==0.3.1
