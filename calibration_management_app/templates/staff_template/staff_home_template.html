@@ -1,0 +1,218 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    Staff Home
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            {% comment %} Boxes Section Starts {% endcomment %}
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h3>{{ leave_count }}</h3>
+                        <p>Total Leave Taken</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="{% url 'staff_apply_leave' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-primary">
+                    <div class="inner">
+                        <h3>{{ total_task }}</h3>
+                        <p>Todays Task</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="{% url 'todo_list' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>{{ pending_task }}</h3>
+                        <p>Pending Task</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="{% url 'todo_list' %}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3>{{ pending_cert }}</h3>
+                        <p>Pending Certificates</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            {% comment %} Boxes Section Ends {% endcomment %}
+
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="card card-primary">
+                    <div class="card-header">
+                      <h3 class="card-title">Summary</h3>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="card-body table-responsive p-0">
+                          <table class="table table-hover">
+                          <thead>
+                              <tr>
+                                <th>Latest Job</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              {% for job in latest_job %}
+                              <tr>
+                                <td>{{ job.job_number }}</td>
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                          </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="col-lg-6">
+                  <div class="card card-success">
+                    <div class="card-header">
+                      <h3 class="card-title">Summary</h3>
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="card-body table-responsive p-0">
+                          <table class="table table-hover">
+                          <thead>
+                              <tr>
+                                <th>New Task</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              {% for n in new_task %}
+                              <tr>
+                                <td>{{ n.task_name }}</td>
+                              </tr>
+                              {% endfor %}
+                          </tbody>
+                          </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+
+<!-- #################### DASHBOARD Button ########################################################### -->
+                <div class="row">
+                  <div class="col-lg-3 col-6">
+                    <a class='btn btn-success btn-block' href="{% url 'calibration_dashboard' %}">Calibration</a>
+                  </div>
+
+                  <div class="col-lg-3 col-6">
+                    <a class='btn btn-success btn-block' href="{% url 'party_list' %}">Manage Customer</a>
+                  </div>
+
+                  <div class="col-lg-3 col-6">
+                    <a class='btn btn-success btn-block' href="#">Inquiry</a>
+                  </div>
+
+                  <div class="col-lg-3 col-6">
+                    <a class='btn btn-success btn-block' href="#">Quote</a>
+                  </div>
+                </div>
+
+                <p></p>
+
+                <div class="row">
+                  <div class="col-lg-3 col-6">
+                    <a class='btn btn-success btn-block' href="{% url 'todo_list' %}">Manage Task</a>
+                  </div>
+                </div>
+
+            </div>
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+          <script>
+
+            var config = {
+            type: 'pie',
+            data: {
+              datasets: [{
+                data: {{ data|safe }},
+                backgroundColor: [
+                  '#0074D9', '#FF4136', '#2ECC40', '#C0C0C0', '#D3D3D3'
+                ],
+                label: 'Total_Instruments'
+              }],
+              labels: {{ labels|safe }}
+            },
+            options: {
+              responsive: true
+            }
+            };
+
+            window.onload = function() {
+            var ctx = document.getElementById('pie-chart').getContext('2d');
+            window.myPie = new Chart(ctx, config);
+            };
+
+          </script>
+
+
+        </div><!-- /.container-fluid -->
+      </section>
+
+  {% endblock main_content %}
+
+  {% block custom_js %}
+
+
+
+
+
+  {% endblock custom_js %}

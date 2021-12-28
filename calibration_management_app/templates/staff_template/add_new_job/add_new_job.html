@@ -1,0 +1,44 @@
+{% extends 'staff_template/base_template.html' %}
+{% load crispy_forms_tags %}
+{% block page_title %}
+    Enter a New Job
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+<section class="content">
+  <div class="form-group"
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                      <div class="card-header">
+                          <h3 class="card-title">Add New Job</h3>
+                      </div>
+
+                      <form role="form" method="POST">
+                             <!-- {{ form.as_p }} -->
+                             {% csrf_token %}
+                             <div class="card-body">
+                                  {{form | crispy}}
+                             </div>
+                          <!-- /.card-body -->
+
+                            <div class="card-footer">
+                              <button type="submit" class="btn btn-primary">Add Job</button>
+                            </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+
+      </section>
+
+  {% endblock main_content %}

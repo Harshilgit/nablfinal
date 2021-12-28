@@ -1,0 +1,36 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    Delete JOB
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+<section class="content">
+    <div class="form-group"
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                          <div class="card-header">
+                              <h3 class="card-title">Delete Model</h3>
+                          </div>
+
+                          <form action="" method="post">
+                                {% csrf_token %}
+                                <h2><p>Are you sure you want to delete "{{ object }}"?</p></h2>
+                                <input class='btn btn-danger' type="submit" value="Confirm" />
+                                <a href="{% url 'model_list' %}" class="btn btn-secondary">Back</a>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      </section>
+
+  {% endblock main_content %}

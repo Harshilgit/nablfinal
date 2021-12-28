@@ -1,0 +1,100 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    Add Instrument
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+{% load bootstrap3 %}
+{% load crispy_forms_tags %}
+
+<section class="content">
+        <div class="form-group"
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Add Instrument</h3>
+                            </div>
+
+                            <form method="POST">
+                              {% csrf_token %}
+                                   <div class="card-body">
+
+                                        <div class="form-group">
+                                            {{form.job_number|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.inst_job_id|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.inst_name|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.cust_spec_name|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                           {{form.location|as_crispy_field}}
+                                       </div>
+                                        <div class="form-group">
+                                            {{form.make|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.model|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.sr_no|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.id_no|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.least_count|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.accuracy|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.low_range|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.high_range|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                          {{form.unit|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.inst_location|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.condition|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.nabl|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.cal_frequency|as_crispy_field}}
+                                        </div>
+                                        <div class="form-group">
+                                            {{form.sp_req|as_crispy_field}}
+                                        </div>
+
+                                    </div>
+
+                                <div class="card-footer">
+                                  <button type="submit" class="btn btn-primary">SAVE</button>
+                                </div>
+
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+
+  </section>
+
+  {% endblock main_content %}

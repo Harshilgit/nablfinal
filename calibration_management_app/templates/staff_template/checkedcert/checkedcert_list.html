@@ -1,0 +1,96 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    Final Certificate for Print
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+
+            {% if messages %}
+                                <div class="form-group">
+                                <div class="col-12">
+                                    {% for message in messages %}
+                                    {% if message.tags == "error" %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% elif message.tags == "success" %}
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                </div>
+                                {% endif %}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card">
+                        <div class="card-header">
+
+
+                            <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                              <a href="#" class="btn btn-dark">Export PDF</a>
+                            </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover">
+                              <thead>
+                                  <tr>
+                                  <th>Cert No</th>
+                                  <th>Status</th>
+                                  <th>Final Updated At</th>
+                                  <th>Action</th>
+                                  </tr>
+                              </thead>
+                            <tbody>
+                                {% for c in checked_list %}
+                                  {% if c.check == True %}
+                                <tr>
+                                <td><a href="{% url 'fcert_detail' pk=c.pk %}">{{ c.cert_no }}</a></td>
+                                <td>{{ c.check }}</td>
+                                <td>{{ c.updated_at }}</td>
+                                <td>
+                                    <button class="btn btn-primary hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print</button>
+                                </td>
+                              </tr>
+                                 {% endif %}
+                                {% endfor %}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+
+      </section>
+
+  {% endblock main_content %}

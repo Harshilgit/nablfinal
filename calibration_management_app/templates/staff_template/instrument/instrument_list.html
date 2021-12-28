@@ -1,0 +1,134 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    Manage Inward Details
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            <a class="btn btn-primary" href="{% url 'create_inst' %}" role="button">+ Add New Instrument</a> <br/>&nbsp;
+
+            {% if messages %}
+                                <div class="form-group">
+                                <div class="col-12">
+                                    {% for message in messages %}
+                                    {% if message.tags == "error" %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% elif message.tags == "success" %}
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
+                                        {{ message }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                                </div>
+                                </div>
+                                {% endif %}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Instrument Inward Details</h3>
+
+                            <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                <th>ID</th>
+                                <th>Job No</th>
+                                <th>Instrument Job Id</th>
+                                <th>Instrument Name</th>
+                                <th>Cust Spec Name</th>
+                                <th>Location</th>
+                                <th>Make</th>
+                                <th>Model</th>
+                                <th>Serial No</th>
+                                <th>Id No</th>
+                                <th>Least Count</th>
+                                <th>Accuracy</th>
+                                <th>Low Range</th>
+                                <th>High Range</th>
+                                <th>Unit</th>
+                                <th>Instrument Location</th>
+                                <th>Condition</th>
+                                <th>NABL</th>
+                                <th>Calibration Frequency</th>
+                                <th>Special Request</th>
+
+                                <th>Created At</th>
+                                <th>Updated At</th>
+                                <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in inst_list %}
+                                <tr>
+                                <td>{{ i.id }}</td>
+                                <td>{{ i.job_number }}</td>
+                                <td><a href="{% url 'certinfo_create' %}">{{ i.inst_job_id }}</a></td>
+                                <td>{{ i.inst_name }}</td>
+                                <td>{{ i.cust_spec_name }}</td>
+                                <td>{{ i.location }}</td>
+                                <td>{{ i.make }}</td>
+                                <td>{{ i.model }}</td>
+                                <td>{{ i.sr_no }}</td>
+                                <td>{{ i.id_no }}</td>
+                                <td>{{ i.least_count }}</td>
+                                <td>{{ i.accuracy }}</td>
+                                <td>{{ i.low_range }}</td>
+                                <td>{{ i.high_range }}</td>
+                                <td>{{ i.unit }}</td>
+                                <td>{{ i.inst_location }}</td>
+                                <td>{{ i.condition }}</td>
+                                <td>{{ i.nabl }}</td>
+                                <td>{{ i.cal_frequency }}</td>
+                                <td>{{ i.sp_req }}</td>
+
+                                <td>{{ i.created_at }}</td>
+                                <td>{{ i.updated_at }}</td>
+                                <td>
+                                    <a href="{% url 'inst_update' pk=i.pk %}" <i class="fas fa-edit"></i></a>
+                                    <a href="{% url 'inst_delete' pk=i.pk %}" <i class="fas fa-trash-alt"></i></a>
+                                </td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                            </table>
+                        </div>
+
+                        </div>
+
+
+                </div>
+            </div>
+
+        </div>
+      </section>
+
+  {% endblock main_content %}

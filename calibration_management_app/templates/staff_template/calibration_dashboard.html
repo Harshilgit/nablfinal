@@ -1,0 +1,121 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    Manage Calibration Activity
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+<section class="content">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-3">
+                  <div class="card border-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Latest Job</div>
+                      <div class="card-body text-primary">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Latest Job</p>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="card border-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">SRF Status</div>
+                      <div class="card-body text-primary">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Latest SRF</p>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="card border-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Calibration Under Process</div>
+                      <div class="card-body text-primary">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Under process</p>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="card border-primary mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Pending Certificate</div>
+                      <div class="card-body text-primary">
+                        <h5 class="card-title">Primary card title</h5>
+                        <p class="card-text">Pending Cert</p>
+                      </div>
+                  </div>
+                </div>
+            </div>
+
+<!-- ################### Button Section ############################################################ -->
+            <div class="row">
+              <div class="col-lg-3">
+                <a class='btn btn-primary btn-block' href="{% url 'job_list' %}">Manage Job</a>
+              </div>
+
+              <div class="col-lg-3">
+                <a class='btn btn-primary btn-block' href="{% url 'inst_list' %}">Add Instrument</a>
+              </div>
+
+              <div class="col-lg-3">
+                <a class='btn btn-primary btn-block' href="#">Inspection/SRF</a>
+              </div>
+
+              <div class="col-lg-3">
+                <a class='btn btn-primary btn-block' href="#">Datasheet</a>
+              </div>
+            </div>
+
+            <p></p>
+
+            <div class="row">
+              <div class="col-lg-3">
+                <a class='btn btn-primary btn-block' href="{% url 'cert_list' %}">Make Certificate</a>
+              </div>
+
+              <div class="col-lg-3">
+                <a class='btn btn-primary btn-block' href="{% url 'fcert_list' %}">Engg Review</a>
+              </div>
+
+              <div class="col-lg-3">
+                <a class='btn btn-primary btn-block' href="{% url 'checked_list' %}">Final Certificate</a>
+              </div>
+
+              <div class="col-lg-3">
+                <a class='btn btn-primary btn-block' href="#">Outward</a>
+              </div>
+            </div>
+
+            <p></p>
+
+            <div class="row">
+              <div class="col-lg-3">
+                <a class='btn btn-secondary btn-block' href="{% url 'make_list' %}">Make</a>
+              </div>
+
+              <div class="col-lg-3">
+                <a class='btn btn-secondary btn-block' href="{% url 'model_list' %}">Model</a>
+              </div>
+
+              <div class="col-lg-3">
+                <a class='btn btn-secondary btn-block' href="{% url 'uuc_list' %}">UUC</a>
+              </div>
+
+              <div class="col-lg-3">
+                <a class='btn btn-secondary btn-block' href="{% url 'master_list' %}">Master Instrument</a>
+              </div>
+            </div>
+      </div>
+      </section>
+
+  {% endblock main_content %}
+
+{% block custom_js %}
+
+{% endblock custom_js %}

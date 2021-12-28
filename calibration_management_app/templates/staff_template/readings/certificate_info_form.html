@@ -1,0 +1,231 @@
+{% extends 'staff_template/base_template.html' %}
+{% load crispy_forms_tags %}
+{% block page_title %}
+    Enter a Readings
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+{% load bootstrap3 %}
+
+<section class="content">
+  <div class="form-group"
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                      <div class="card-header">
+                          <h3 class="card-title">Add Readings</h3>
+                      </div>
+
+                      <form role="form" method="POST">
+                             {% csrf_token %}
+                             <div class="card-body">
+                                 <div class="row">
+                                 <div class="col-md-12" id="mastername">
+                                     {{form.inst_job_id|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-6">
+                                     {{form.cert_no|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-6">
+                                     {{form.ulr_no|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-6" id="make">
+                                     {{form.cal_date|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-6" id="make">
+                                     {{form.due_date|as_crispy_field}}
+                                 </div>
+
+
+
+
+                                 <div class="col-md-2" id="make">
+                                     {{form.r1_1|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-2" id="make">
+                                     {{form.r1_2|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r1_3|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r1_4|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r1_5|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r1_6|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r1_7|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r1_8|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r1_9|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r1_10|as_crispy_field}}
+                                 </div>
+
+
+
+
+                                 <div class="col-md-2" id="make">
+                                     {{form.r2_1|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-2" id="make">
+                                     {{form.r2_2|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r2_3|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r2_4|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r2_5|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r2_6|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r2_7|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r2_8|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r2_9|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r2_10|as_crispy_field}}
+                                 </div>
+
+
+
+
+                                 <div class="col-md-2" id="make">
+                                     {{form.r3_1|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-2" id="make">
+                                     {{form.r3_2|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r3_3|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r3_4|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r3_5|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r3_6|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r3_7|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r3_8|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r3_9|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r3_10|as_crispy_field}}
+                                 </div>
+
+
+
+
+                                 <div class="col-md-2" id="make">
+                                     {{form.r4_1|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-2" id="make">
+                                     {{form.r4_2|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r4_3|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r4_4|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r4_5|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r4_6|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r4_7|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r4_8|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r4_9|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r4_10|as_crispy_field}}
+                                 </div>
+
+
+
+
+
+                                 <div class="col-md-2" id="make">
+                                     {{form.r5_1|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-2" id="make">
+                                     {{form.r5_2|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r5_3|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r5_4|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r5_5|as_crispy_field}}
+                                 </div>
+                                 <div class="col-md-1" id="make">
+                                     {{form.r5_6|as_crispy_field}}
+                                   </div>
+                                   <div class="col-md-1" id="make">
+                                       {{form.r5_7|as_crispy_field}}
+                                     </div>
+                                     <div class="col-md-1" id="make">
+                                       {{form.r5_8|as_crispy_field}}
+                                     </div>
+                                     <div class="col-md-1" id="make">
+                                       {{form.r5_9|as_crispy_field}}
+                                     </div>
+                                     <div class="col-md-1" id="make">
+                                       {{form.r5_10|as_crispy_field}}
+                                     </div>
+                                 </div>
+
+                             </div>
+
+                            <div class="card-footer">
+                              <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                      </form>
+
+
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+
+      </section>
+
+  {% endblock main_content %}

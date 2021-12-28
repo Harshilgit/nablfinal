@@ -1,0 +1,290 @@
+{% extends 'staff_template/base_template.html' %}
+
+{% block page_title %}
+    Certificate Preview
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+
+
+
+<section class="content">
+        <div class="container-fluid">
+
+            <a class="btn btn-primary" href="{% url 'fcert_list' %}" role="button">Home</a> <br/>&nbsp;
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Certificate</h3>
+
+                            <div class="card-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                <div class="input-group-append">
+                                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+
+                          <div class="container" style="border: 1px solid black">
+
+
+
+                                  <div class="row">
+                                  <div class="col-md-3" style="border: 1px solid black">Certificate No</div>
+                                  <div class="col-md-3" style="border: 1px solid black">{{ f.cert_no }}</div>
+                                  <div class="col-md-3" style="border: 1px solid black">Page No</div>
+                                  <div class="col-md-3" style="border: 1px solid black">1 of 1</div>
+
+                                  <p class="col-md-12" ></p>
+
+                                  <div class="col-md-3" style="border: 1px solid black">ULR NO</div>
+                                  <div class="col-md-3" style="border: 1px solid black">{{ f.cert_no.ulr_no }}</div>
+                                  <div class="col-md-3" style="border: 1px solid black">Date Of Issue</div>
+                                  <div class="col-md-3" style="border: 1px solid black">{{ f.cert_no.cal_date }}</div>
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-3" style="border: 1px solid black">Date Of Calibration</div>
+                                  <div class="col-md-3" style="border: 1px solid black">{{ f.cert_no.cal_date }}</div>
+                                  <div class="col-md-3" style="border: 1px solid black">Calibration Due Date</div>
+                                  <div class="col-md-3" style="border: 1px solid black">{{ f.cert_no.due_date }}</div>
+
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-6" style="border: 1px solid black">Client Name And Address</div>
+                                  <div class="col-md-3" style="border: 1px solid black">Condition Of UUC</div>
+                                  <div class="col-md-3" style="border: 1px solid black">{{ f.inst_name.condition }}</div>
+
+
+
+
+                                  <div class="col-md-6" style="border: 1px solid black">{{ f.inst_name.job_number.party }}</div>
+                                  <div class="col-md-3" style="border: 1px solid black">Location Of Calibration</div>
+                                  <div class="col-md-3" style="border: 1px solid black">{{ f.inst_name.inst_location }}</div>
+
+
+                                  <div class="col-md-6" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black">Ambient Temp</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-6" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black">Relative Humidity</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-3" style="border: 1px solid black">Service request No</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black">Referance IS</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-3" style="border: 1px solid black">Date Of Received</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black">Work Instruction</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+
+                                  <p class="col-md-12"></p>
+
+                                <div class="col-md-12" style="border: 1px solid black; Text-align: center;"><h5>Description Of UUC</h5></div>
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-3" style="border: 1px solid black">Name</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black">Parameter To be Calibrate</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-3" style="border: 1px solid black">Make</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black">Range</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-3" style="border: 1px solid black">Sr No</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black">Least Count</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-3" style="border: 1px solid black">Id No</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black">Model</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-3" style="border: 1px solid black">Accuracy</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black">Location</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-12" style="border: 1px solid black; Text-align: center;"><h5>Referance Standard Used For Calibration</h5></div>
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-2" style="border: 1px solid black">Name</div>
+                                  <div class="col-md-4" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black">Certificate No</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-2" style="border: 1px solid black">Id No</div>
+                                  <div class="col-md-4" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black">Calibration Due Date</div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-12" style="border: 1px solid black; Text-align: center;"><h5>Result Of Calibration</h5></div>
+
+                                  <p class="col-md-12"></p>
+
+
+                                  <div class="col-md-4" style="border: 1px solid black">Standard Size Of Caliper Checker</div>
+                                  <div class="col-md-4" style="border: 1px solid black">Reading Observed On UUC</div>
+                                  <div class="col-md-4" style="border: 1px solid black">Error in mm</div>
+
+                                  <div class="col-md-2" style="border: 1px solid black">Outside</div>
+                                  <div class="col-md-2" style="border: 1px solid black">Inside</div>
+                                  <div class="col-md-2" style="border: 1px solid black">Outside</div>
+                                  <div class="col-md-2" style="border: 1px solid black">Inside</div>
+                                  <div class="col-md-2" style="border: 1px solid black">Outside</div>
+                                  <div class="col-md-2" style="border: 1px solid black">Inside</div>
+
+                                  <div class="col-md-2" style="border: 1px solid black">0.00</div>
+                                  <div class="col-md-2" style="border: 1px solid black">{{ f.cert_no.r1_1}}</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-2" style="border: 1px solid black">20.00</div>
+                                  <div class="col-md-2" style="border: 1px solid black">{{ f.cert_no.r1_2}}</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-2" style="border: 1px solid black">50.00</div>
+                                  <div class="col-md-2" style="border: 1px solid black">{{ f.cert_no.r1_3}}</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-2" style="border: 1px solid black">100.00</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-2" style="border: 1px solid black">5</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-2" style="border: 1px solid black">6</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-2" style="border: 1px solid black">7</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-2" style="border: 1px solid black">8</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-12" style="border: 1px solid black; Text-align: center;"><h5>Calibration Result Of Depth Side</h5></div>
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-3" style="border: 1px solid black">Standard Reading</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-3" style="border: 1px solid black">Reading Observed On UUC</div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-3" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+                                  <div class="col-md-2" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-6" style="border: 1px solid black">Gap On Outside Measuring Jaw</div>
+                                  <div class="col-md-6" style="border: 1px solid black"></div>
+
+                                  <div class="col-md-6" style="border: 1px solid black">Gap On Inside Measuring Jaw</div>
+                                  <div class="col-md-6" style="border: 1px solid black"></div>
+
+                                  <p class="col-md-12"></p>
+
+                                  <div class="col-md-12" style="border: 1px solid black">Note:</div>
+
+                                  <ol>
+                                    <li>UUC stands for Unit Under Calibration.</li>
+                                    <li>Reported reading is average of 5 set of measurement.</li>
+                                    <li>Results Presented in this certificate relate only to the items mentioned & calibrated at KES-lab.</li>
+                                    <li>This certificate shall not be reproduced except in full without written approval of KES-lab.</li>
+                                    <li>All Instruments used are traceable to national standards with ref standards and their calibration are valid.</li>
+                                    <li>The above instrument is calibrated against standard instrument and found Within specified Accuracy.</li>
+                                    <li>The above instrument is calibrated against standard instrument and found Within specified Accuracy.</li>
+                                  </ol>
+
+
+                                  <div class="col-md-6" style="border: 1px solid black">Calibrated By</div>
+                                  <div class="col-md-6" style="border: 1px solid black">Approved By</div>
+
+                                  <div class="col-md-6" style="border: 1px solid black">Harikrishna Patel (Calibration Engineer)</div>
+                                  <div class="col-md-6" style="border: 1px solid black">Chirag Patel (QM/TM)</div>
+
+                                </div>
+                                
+                              </div>
+                          </div>
+
+
+                          </div>
+
+                        </div>
+                        <!-- /.card-body -->
+                        </div>
+                    <!-- /.card -->
+
+                </div>
+
+
+
+      </section>
+
+
+
+{% endblock main_content %}
