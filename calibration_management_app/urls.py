@@ -5,6 +5,7 @@ from .import HodViews, StaffViews
 from django.views.generic import RedirectView
 
 
+
 urlpatterns = [
     path('', views.loginPage, name="login"),
     path('doLogin/', views.doLogin, name="doLogin"),
@@ -82,6 +83,7 @@ urlpatterns = [
     path('create_todo', StaffViews.TodoCreateView.as_view(), name= 'create_todo' ),
     path('todo_update/<int:pk>', StaffViews.TodoUpdateView.as_view(), name= 'todo_update'),
     path('todo_delete/<int:pk>', StaffViews.TodoDeleteView.as_view(), name='todo_delete'),
+    url(r'^todosearch/$', StaffViews.Todosearch, name='todosearch'),
 
 
     path('master_list', StaffViews.MasterinstrumentListView.as_view(), name='master_list' ),
@@ -105,7 +107,7 @@ urlpatterns = [
 
     path('checked_list', StaffViews.CheckedcertListView.as_view(), name='checked_list' ),
 
-    
+
 
 
     ]

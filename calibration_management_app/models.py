@@ -9,6 +9,7 @@ from django.core.files import File
 from PIL import Image, ImageDraw
 from datetime import datetime
 from django.utils import timezone
+from phone_field import PhoneField
 
 
 
@@ -68,10 +69,19 @@ class FeedBackStaffs(models.Model):
 #########################  PARTY INFO #########################################################
 class Party(models.Model):
     id = models.AutoField(primary_key=True)
-    party_name = models.CharField(max_length=200, blank=False)
+    party_name = models.CharField(max_length=200, blank=False, default="")
+    first_name = models.CharField(max_length=200, null=False, default="")
+    last_name = models.CharField(max_length=200, null=False, default="")
+    email = models.EmailField(max_length=200, null=True, default="")
+    job_position = models.CharField(max_length=200, null=True)
+    business_phone = PhoneField(null=False, blank=True, help_text='Contact phone number')
+    home_phone = PhoneField(null=True, blank=True, help_text='Contact phone number')
+    mobile_phone = PhoneField(null=True, blank=True, help_text='Contact phone number')
+    fax_number = models.CharField(max_length=200, null=True, blank=True, default="")
     address = models.CharField(max_length=500)
-    email = models.CharField(max_length=200)
-    contact = models.CharField(max_length=20)
+    country = models.CharField(max_length=200, null=True, blank=True, default="")
+    webpage = models.CharField(max_length=200, null=True, blank=True, default="")
+    note = models.CharField(max_length=200, null=True, blank=True, default="")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = models.Manager()
@@ -212,7 +222,14 @@ class UUC(models.Model):
 class Todo(models.Model):
     id = models.AutoField(primary_key=True)
     task_name = models.CharField(max_length=200)
+    description = models.TextField(default="")
     assigned_to = models.ForeignKey(Staffs, on_delete=models.CASCADE)
+    Priority_Choices = (
+    ("HIGH", 'HIGH'),
+    ("NORMAL", 'NORMAL'),
+    ("LOW", 'LOW')
+    )
+    priority = models.CharField(max_length=50, choices=Priority_Choices, default="NORMAL")
     status = models.BooleanField(default=False)
     deadline = models.DateTimeField()
     now = models.DateTimeField(default=timezone.now, blank=True, editable = False)

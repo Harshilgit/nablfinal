@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#angi9@ujxy*aa8rltl#hm%8bdcenn!%_uca_qrc01+a4d#(ua'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['nablfinal.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shapeshifter',
+    'widget_tweaks',
+    'phone_field',
     'bootstrap3',
     'crispy_forms',
     'calibration_management_app.apps.CalibrationManagementAppConfig'

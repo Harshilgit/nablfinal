@@ -29,6 +29,8 @@ from calibration_management_app.models import CustomUser, Staffs,LeaveReportStaf
 from calibration_management_app.models import *
 from calibration_management_app.forms import *
 
+from .filters import *
+
 
 
 
@@ -385,6 +387,12 @@ class TodoDeleteView(DeleteView):
 	model = Todo
 	template_name = 'staff_template/todo/todo_confirm_delete.html'
 	success_url = reverse_lazy('todo_list')
+
+
+def Todosearch(request):
+    todo_list = Todo.objects.all()
+    todo_filter = TodoFilter(request.GET, queryset=todo_list)
+    return render(request, "staff_template/todo/todo_filter_list.html", {'filter': todo_filter})
 
 
 

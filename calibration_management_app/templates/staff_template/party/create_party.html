@@ -22,7 +22,53 @@
                       <form role="form" method="POST" id="party-form">
                              {% csrf_token %}
                              <div class="card-body">
-                                  {{form | crispy}}
+                                 <div class="form-group">
+                                     {{form.party_name|as_crispy_field}}
+                                 </div>
+                                 <div class="form-group">
+                                     {{form.first_name|as_crispy_field}}
+                                 </div>
+                                 <div class="form-group">
+                                     {{form.last_name|as_crispy_field}}
+                                 </div>
+                                 <div class="form-group">
+                                     {{form.email|as_crispy_field}}
+                                 </div>
+                                 <div class="form-group">
+                                     {{form.job_position|as_crispy_field}}
+                                 </div>
+                                 <div class="form-group">
+                                     {{form.business_phone|as_crispy_field}}
+                                 </div>
+                                 <div class="form-group">
+                                     {{form.mobile_phone|as_crispy_field}}
+                                 </div>
+                                 <div class="form-group">
+                                     {{form.home_phone|as_crispy_field}}
+                                 </div>
+                                 <div class="form-group">
+                                     {{form.fax_number|as_crispy_field}}
+                                 </div>
+                                 <div class="form-group">
+                                     {{form.address|as_crispy_field}}
+                                 </div>
+                                 <div class="form-group">
+                                     <select name="country" class="countries order-alpha" id="countryId">
+                                        <option value="">Select Country</option>
+                                    </select>
+                                    <select name="state" class="states order-alpha" id="stateId">
+                                        <option value="">Select State</option>
+                                    </select>
+                                    <select name="city" class="cities order-alpha" id="cityId">
+                                        <option value="">Select City</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    {{form.webpage|as_crispy_field}}
+                                </div>
+                                <div class="form-group">
+                                    {{form.note|as_crispy_field}}
+                                </div>
                              </div>
                             <div class="card-footer">
                               <button type="submit" class="btn btn-primary">Save</button>
@@ -37,5 +83,9 @@
 
       </section>
 
-      
+      {% block custom_js %}
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+      {% endblock custom_js %}
+
   {% endblock main_content %}

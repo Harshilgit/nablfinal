@@ -1,48 +1,48 @@
 {% extends 'staff_template/base_template.html' %}
 
 {% block page_title %}
-    Manage Todo
+    Search Task
 {% endblock page_title %}
 
 {% block main_content %}
 
 {% load static %}
+{% load widget_tweaks %}
 
 <section class="content">
         <div class="container-fluid">
 
-       <div class="row">
-        <div class="col-3">
-            <a class="btn btn-primary" href="{% url 'create_todo' %}" role="button">+ ADD Task</a> <br/>&nbsp;
-        </div>
-        <div class="col-3">
-            <a class="btn btn-primary" href="{% url 'todosearch' %}" role="button">Filter Task</a> <br/>&nbsp;
-        </div>
-       </div>
 
-            {% if messages %}
-                                <div class="form-group">
-                                <div class="col-12">
-                                    {% for message in messages %}
-                                    {% if message.tags == "error" %}
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 10px;">
-                                        {{ message }}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        </div>
-                                    {% elif message.tags == "success" %}
-                                        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 10px;">
-                                        {{ message }}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        </div>
-                                    {% endif %}
-                                    {% endfor %}
-                                </div>
-                                </div>
-                                {% endif %}
+            <form method="get">
+                <div class="card-body">
+                    <div class="row">
+                       <div class="form-group col-sm-4 col-md-3">
+                           {{filter.form.task_name.label_tag}}
+                           {% render_field filter.form.task_name class="form-control" %}
+                       </div>
+                       <div class="form-group col-sm-4 col-md-3">
+                           {{filter.form.priority.label_tag}}
+                           {% render_field filter.form.priority class="form-control" %}
+                       </div>
+                       <div class="form-group col-sm-4 col-md-3">
+                           {{filter.form.created_at.label_tag}}
+                           {% render_field filter.form.created_at class="form-control" %}
+                       </div>
+                       <div class="form-group col-sm-4 col-md-3">
+                           {{filter.form.assigned_to.label_tag}}
+                           {% render_field filter.form.assigned_to class="form-control" %}
+                       </div>
+                   </div>
+               </div>
+
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Search</button>
+                  <button type="reset" class="btn btn-primary">Clear</button>
+                </div>
+            </form>
+
+
 
             <div class="row">
                 <div class="col-md-12">
@@ -97,7 +97,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for t in todo_list %}
+                                {% for t in filter.qs %}
                                 <tr>
                                 <td>{{ t.id }}</td>
                                 <td>{{ t.task_name }}</td>
